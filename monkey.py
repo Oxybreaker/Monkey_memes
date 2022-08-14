@@ -50,14 +50,14 @@ class JacquesMod(loader.Module):
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype(io.BytesIO(f), 32, encoding='UTF-8')
 		w, h = draw.multiline_textsize(t, font=font)
-		imtext = Image.new("RGBA", (w+10, h+10), (0, 0,0,0))
+		imtext = Image.new("RGBA", (w+20, h+20), (0, 0,0,0))
 		draw = ImageDraw.Draw(imtext)
-		draw.multiline_text((10, 10),t,(0,0,0),font=font, align='down')
-		imtext.thumbnail((539, 381))
-		w, h = 539, 381
-		img.paste(imtext, (10,10), imtext)
+		draw.multiline_text((10, 10),t,(255,255,255),font=font, align='center')
+		imtext.thumbnail((W, H))
+		w, h = imtext.size
+		img.paste(imtext, ((W-w)//2,(H-h)//2), imtext)
 		out = io.BytesIO()
-		out.name = "@offsd.jpg"
+		out.name = "out.jpg"
 		img.save(out)
 		out.seek(0)
 		await message.client.send_file(message.to_id, out, reply_to=reply)
