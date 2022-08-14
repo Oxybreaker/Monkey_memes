@@ -13,8 +13,8 @@ def register(cb):
 class JacquesMod(loader.Module):
 	"""Жаконизатор"""
 	strings = {
-		'name': 'Жаконизатор',
-		'usage': 'Напиши <code>.help Жаконизатор</code>',
+		'name': 'Манкизатор',
+		'usage': 'Напиши <code>.help Манкизатор</code>',
 	}
 	def __init__(self):
 		self.name = self.strings['name']
@@ -22,7 +22,7 @@ class JacquesMod(loader.Module):
 		self._ratelimit = []
 	
 	async def jcmd(self, message):
-		""".j <реплай на сообщение/свой текст>\n@offsd подпишись-пожалеешь"""
+		""".j <replay to message> <text>"""
 		
 		ufr = requests.get("https://github.com/Sad0ff/modules-ftg/raw/master/open-sans.ttf")
 		f = ufr.content
@@ -44,7 +44,7 @@ class JacquesMod(loader.Module):
  
 		W, H = img.size
 		#txt = txt.replace("\n", "𓃐")
-		text = "\n".join(wrap(txt, 19))
+		text = "\n".join(wrap(txt, 56))
 		t = text + "\n"
 		#t = t.replace("𓃐","\n")
 		draw = ImageDraw.Draw(img)
@@ -53,7 +53,7 @@ class JacquesMod(loader.Module):
 		imtext = Image.new("RGBA", (w+10, h+10), (0, 0,0,0))
 		draw = ImageDraw.Draw(imtext)
 		draw.multiline_text((10, 10),t,(0,0,0),font=font, align='left')
-		imtext.thumbnail((339, 181))
+		imtext.thumbnail((0, 0))
 		w, h = 339, 181
 		img.paste(imtext, (10,10), imtext)
 		out = io.BytesIO()
