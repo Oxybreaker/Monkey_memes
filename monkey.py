@@ -40,21 +40,21 @@ class JacquesMod(loader.Module):
 		await message.edit("<b>Извинись, быдло...</b>")
 		pic = requests.get("https://memepedia.ru/wp-content/uploads/2021/04/qblulgcbrwk-%E2%80%94-kopija.jpg")
 		pic.raw.decode_content = True
-		img = Image.open(io.BytesIO(pic.content)).convert("RGB")
+	        img = Image.open(io.BytesIO(pic.content)).convert("RGB")
  
 		W, H = img.size
 		#txt = txt.replace("\n", "𓃐")
-		text = "\n".join(wrap(txt, 56))
+		text = "\n".join(wrap(txt, 19))
 		t = text + "\n"
 		#t = t.replace("𓃐","\n")
 		draw = ImageDraw.Draw(img)
 		font = ImageFont.truetype(io.BytesIO(f), 32, encoding='UTF-8')
 		w, h = draw.multiline_textsize(t, font=font)
-		imtext = Image.new("RGBA", (w+0, h+0), (1, 1,1,1))
+		imtext = Image.new("RGBA", (w+10, h+10), (0, 0,0,0))
 		draw = ImageDraw.Draw(imtext)
-		draw.multiline_text((10, 10),t,(100,100,100),font=font, align='left')
-		imtext.thumbnail((449, 449))
-		w, h = 449, 449
+		draw.multiline_text((10, 10),t,(0,0,0),font=font, align='down')
+		imtext.thumbnail((339, 181))
+		w, h = 539, 381
 		img.paste(imtext, (10,10), imtext)
 		out = io.BytesIO()
 		out.name = "@offsd.jpg"
