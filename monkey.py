@@ -54,7 +54,7 @@ class JacquesMod(loader.Module):
 		draw = ImageDraw.Draw(imtext)
 		draw.multiline_text((10, 10),t,(0,0,0),font=font, align='left')
 		imtext.thumbnail((0, 0))
-		w, h = 339, 181
+		w, h = 0, 0
 		img.paste(imtext, (10,10), imtext)
 		out = io.BytesIO()
 		out.name = "@offsd.jpg"
