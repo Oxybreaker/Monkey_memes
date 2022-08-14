@@ -11,9 +11,9 @@ def register(cb):
 	cb(JacquesMod())
 	
 class JacquesMod(loader.Module):
-	"""Жаконизатор"""
+	"""Манкизатор - Edited"""
 	strings = {
-		'name': 'Манкизатор',
+		'name': 'Манкизатор - Edited',
 		'usage': 'Напиши <code>.help Манкизатор</code>',
 	}
 	def __init__(self):
