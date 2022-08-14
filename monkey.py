@@ -13,8 +13,8 @@ def register(cb):
 class JacquesMod(loader.Module):
 	"""Жаконизатор"""
 	strings = {
-		'name': 'Жаконизатор',
-		'usage': 'Напиши <code>.help Жаконизатор</code>',
+		'name': 'Жоски',
+		'usage': 'Напиши <code>.help Жоски</code>',
 	}
 	def __init__(self):
 		self.name = self.strings['name']
@@ -22,7 +22,7 @@ class JacquesMod(loader.Module):
 		self._ratelimit = []
 	
 	async def jcmd(self, message):
-		""".j <реплай на сообщение/свой текст>\n@offsd подпишись-пожалеешь"""
+		""".j <реплай на сообщение/свой текст>"""
 		
 		ufr = requests.get("https://github.com/Sad0ff/modules-ftg/raw/master/open-sans.ttf")
 		f = ufr.content
